@@ -1,5 +1,5 @@
 
--- 1. Crear la tabla ITEMS_ORDERED.
+-- 1. Crear la tabla ITEMS_ORDERED
 
 CREATE TABLE ITEMS_ORDERED
 (
@@ -19,7 +19,7 @@ FROM ITEMS_ORDERED;
 
 ---------------------------------------------------------------------------------------------------------------
 
---CREACIÓN DE LA TABLA CUSTOMERS
+--CREACIï¿½N DE LA TABLA CUSTOMERS
 
 CREATE TABLE CUSTOMERS
 (
@@ -49,7 +49,7 @@ WHERE CUSTOMERID = '10449';
 --------------------------------------------------------------------------------------------------------------------------------------
 
 /*12. Seleccione todas las columnas de la tabla items_ordered, 
-       en cuyas órdenes se hayan comprado un "Tent".*/
+       en cuyas ï¿½rdenes se hayan comprado un "Tent".*/
 
 SELECT *
 FROM ITEMS_ORDERED
@@ -67,7 +67,7 @@ WHERE ITEM LIKE 'S%';
 
 /* 14. Seleccione los distintos items que se encuentren 
    en la tabla items_ordered.En otras palabras despliegue
-   de manera única los items que se encuentren en la tabla
+   de manera ï¿½nica los items que se encuentren en la tabla
                        items_ordered.*/
           
 SELECT ITEM 
@@ -75,7 +75,7 @@ FROM ITEMS_ORDERED;
 
 --------------------------------------------------------------------------------------------------------------------------
 
-/* 15. Seleccione el precio máximo de cualquier 
+/* 15. Seleccione el precio mï¿½ximo de cualquier 
    item ordenado en la tabla items_ordered.*/
 
 SELECT ITEM, MAX (PRICE) "PRECIO MAXIMO"
@@ -93,7 +93,7 @@ WHERE to_char(ORDER_DATE, 'MM') = '12'
 GROUP BY ITEM, ORDER_DATE;
 
 
-/* 17. Cuál es la cantidad total de 
+/* 17. Cuï¿½l es la cantidad total de 
  filas en la tabla items_ordered?*/
 
 SELECT COUNT(CUSTOMERID) "CANTIDAD DE FILAS"
@@ -102,7 +102,7 @@ FROM ITEMS_ORDERED;
 ------------------------------------------------------------------------------------------------------------
 
 /* 18. De todos los items "tents" que fueron ordenados en 
- la tabla items_ordered, cuál es el de menor precio?*/
+ la tabla items_ordered, cuï¿½l es el de menor precio?*/
  
  SELECT ITEM, MIN (PRICE) "PRECIO MENOR"
  FROM ITEMS_ORDERED
@@ -111,7 +111,7 @@ FROM ITEMS_ORDERED;
  
  ------------------------------------------------------------------------------------------------------------
  
- /*19. Cuántas personas hay en cada estado, en la tabla de Clientes? 
+ /*19. Cuï¿½ntas personas hay en cada estado, en la tabla de Clientes? 
   Seleccione el estado y muestre la cantidad de personas de cada estado.*/
 
 SELECT COUNT(DISTINCT CUSTOMERID) "CANTIDAD DE PERSONAS", STATE
@@ -120,8 +120,8 @@ GROUP BY STATE;
   
 --------------------------------------------------------------------------------------------------------------------------
 
-/* 20. De la tabla items_ordered, seleccione el item, precio máximo 
-             y mínimo de cada item existente en la tabla. */
+/* 20. De la tabla items_ordered, seleccione el item, precio mï¿½ximo 
+             y mï¿½nimo de cada item existente en la tabla. */
              
 SELECT ITEM, MIN (PRICE ) "PRECIO MINIMO", MAX (PRICE)"PRECIO MAXIMO"
 FROM ITEMS_ORDERED
@@ -129,8 +129,8 @@ GROUP BY ITEM;
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-/* 21. Cuántas órdenes hay por cliente? Use la tabla items_ordered. 
-   Seleccione el Id del Cliente, cantidad de órdenes realizadas 
+/* 21. Cuï¿½ntas ï¿½rdenes hay por cliente? Use la tabla items_ordered. 
+   Seleccione el Id del Cliente, cantidad de ï¿½rdenes realizadas 
                       y el precio total.*/
                       
 SELECT CUSTOMERID "ID DEL CLIENTE", SUM (PRICE) "PRECIO TOTAL",
@@ -140,9 +140,9 @@ COUNT(ITEM) "CANTIDAD DE ORDENES"
                       
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-/* 22. Cuántas personas hay en cada estado en la tabla customers 
-   que tengan dos o más personas en él? Seleccione el estado y 
-   despliegue la cantidad de personas, siempre y cuando hayan más de 1.*/
+/* 22. Cuï¿½ntas personas hay en cada estado en la tabla customers 
+   que tengan dos o mï¿½s personas en ï¿½l? Seleccione el estado y 
+   despliegue la cantidad de personas, siempre y cuando hayan mï¿½s de 1.*/
    
 
 SELECT STATE, COUNT(CUSTOMERID) "CANTIDAD DE PERSONAS"
@@ -152,9 +152,9 @@ GROUP BY STATE;
 
 -------------------------------------------------------------------------------------------------------------------------------------
 
-/* 23. De la tabla items_ordered, seleccione el item, y el precio máximo 
-   y mínimo de cada uno. Solamente despliegue los resultados de aquellos 
-           items cuyo precio máximo sea mayor que 190. */
+/* 23. De la tabla items_ordered, seleccione el item, y el precio mï¿½ximo 
+   y mï¿½nimo de cada uno. Solamente despliegue los resultados de aquellos 
+           items cuyo precio mï¿½ximo sea mayor que 190. */
            
 SELECT ITEM, MIN(PRICE), MAX(PRICE)
 FROM ITEMS_ORDERED
@@ -163,9 +163,9 @@ GROUP BY ITEM;
 
 -----------------------------------------------------------------------------------------------------------------------
 
-/* 24. Cuántas órdenes ha realizado cada cliente? Use la tabla items_ordered. 
-    Seleccione el ID del Cliente, cantidad de órdenes realizadas por ellos
-           y la sumatoria de precios, si hay más de 1 item comprado. */
+/* 24. Cuï¿½ntas ï¿½rdenes ha realizado cada cliente? Use la tabla items_ordered. 
+    Seleccione el ID del Cliente, cantidad de ï¿½rdenes realizadas por ellos
+           y la sumatoria de precios, si hay mï¿½s de 1 item comprado. */
            
 SELECT CUSTOMERID "ID DEL CLIENTE", COUNT(ITEM) "CANTIDAD DE ORDENES", 
 SUM (PRICE) "SUMATORIA DE PRECIOS"
@@ -173,7 +173,7 @@ SUM (PRICE) "SUMATORIA DE PRECIOS"
  WHERE QUANTITY > 1
  GROUP BY CUSTOMERID;
  
--- COMPROBACIÓN
+-- COMPROBACIï¿½N
 
  SELECT CUSTOMERID, ITEM, QUANTITY
  FROM ITEMS_ORDERED
@@ -221,7 +221,7 @@ WHERE ITEM LIKE 'S%' OR ITEM LIKE 'P%' OR ITEM LIKE 'F%';
 -------------------------------------------------------------------------------------------------------------------------------
 
 /* 29. Seleccione la fecha, item y precio de la tabla items_ordered 
-             cuyo precio esté entre 10.00 y 80.00.  */
+             cuyo precio estï¿½ entre 10.00 y 80.00.  */
              
 SELECT ORDER_DATE, ITEM, PRICE
 FROM ITEMS_ORDERED
@@ -247,7 +247,7 @@ ORDER BY 2 ASC;
 
 ------------------------------------------------------------------------------------------------------------------------
 
-/* 32. Escriba una consulta usando relaciones, para determinar cuáles items fueron 
+/* 32. Escriba una consulta usando relaciones, para determinar cuï¿½les items fueron 
    ordenados por cada cliente. Seleccione el ID del Cliente, nombre, apellido, 
                 fecha de orden, item y precio.  */
                 
@@ -263,9 +263,9 @@ ORDER BY 4 ASC;
 
 -----------------------------------------------------------------------------------------------------------------------
 
-/* 2.1 Construya un bloque PL/SQL que muestre la fecha de contratación más 
+/* 2.1 Construya un bloque PL/SQL que muestre la fecha de contrataciï¿½n mï¿½s 
 reciente de un empleado. En pantalla debe desplegarse el siguiente mensaje:
-         "La fecha más reciente es <fecha reciente>" */  
+         "La fecha mï¿½s reciente es <fecha reciente>" */  
 
 SET SERVEROUTPUT ON              
 DECLARE
@@ -276,7 +276,7 @@ BEGIN
   SELECT MAX(HIRE_DATE) INTO FECHA_RCNT
   FROM EMPLOYEES;
   
-  DBMS_OUTPUT.PUT_LINE('La fecha más reciente es: ' ||FECHA_RCNT);
+  DBMS_OUTPUT.PUT_LINE('La fecha mï¿½s reciente es: ' ||FECHA_RCNT);
   
 END; 
 /
