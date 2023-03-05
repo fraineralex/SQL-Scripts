@@ -1,7 +1,7 @@
 
-/* 3.1 Construya un bloque PL/SQL donde declare dos variables numéricas, una caracter, una lógica y una tipo fecha, y asígnele
-valores durante la declaración. Restrinja la variable caracter para que no permita valores nulos y una de las variables
-numéricas defínela como constante. Muestre por pantalla los valores asignados.*/
+/* 3.1 Construya un bloque PL/SQL donde declare dos variables numï¿½ricas, una caracter, una lï¿½gica y una tipo fecha, y asï¿½gnele
+valores durante la declaraciï¿½n. Restrinja la variable caracter para que no permita valores nulos y una de las variables
+numï¿½ricas defï¿½nela como constante. Muestre por pantalla los valores asignados*/
 
 SET SERVEROUTPUT ON
 DECLARE
@@ -24,9 +24,9 @@ END;
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-/* 3.2 Modifique el código del ejercicio 1 y asígnele un valor diferente a la 
-variable numérica que fue declarada como constante en el cuerpo del bloque. 
-Si da error la ejecución del código, indique el por qué. */ 
+/* 3.2 Modifique el cï¿½digo del ejercicio 1 y asï¿½gnele un valor diferente a la 
+variable numï¿½rica que fue declarada como constante en el cuerpo del bloque. 
+Si da error la ejecuciï¿½n del cï¿½digo, indique el por quï¿½. */ 
 
 SET SERVEROUTPUT ON
 DECLARE
@@ -94,10 +94,10 @@ PRINT b_apellido;
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 /* 3.5 Construya un bloque PL/SQL donde se pida el ID del empleado 
-204 usando una variable de substitución en la sección declarativa. 
+204 usando una variable de substituciï¿½n en la secciï¿½n declarativa. 
 Guarde los valores del nombre, apellido y salario en variables 
-de enlace. Permita que se impriman automáticamente sin usar el 
-comando PRINT. Fuera del bloque de código construya una instrucción
+de enlace. Permita que se impriman automï¿½ticamente sin usar el 
+comando PRINT. Fuera del bloque de cï¿½digo construya una instrucciï¿½n
 SELECT para listar todos los empleados que tengan el mismo salario 
 del empleado 204; use la variable de enlace */
 
@@ -144,13 +144,13 @@ WHERE SALARY = :b_salario;
 
 
 
-/* 4.1 Escriba un bloque de código PL/SQL que lea el nombre y apellido del empleado 204. Los valores deben ser guardados en
+/* 4.1 Escriba un bloque de cï¿½digo PL/SQL que lea el nombre y apellido del empleado 204. Los valores deben ser guardados en
 dos variables declaradas con %TYPE basadas en las columnas de la tabla. Halle la longitud del nombre y del apellido y
-también la diferencia de ambas longitudes. Guarde los valores en variables separadas. Use la función DECODE como una
-instrucción de PL/SQL para evaluar el resultado de la diferencia de las longitudes del nombre y del apellido. Si el resultado es
+tambiï¿½n la diferencia de ambas longitudes. Guarde los valores en variables separadas. Use la funciï¿½n DECODE como una
+instrucciï¿½n de PL/SQL para evaluar el resultado de la diferencia de las longitudes del nombre y del apellido. Si el resultado es
 0, guardar en una variable el valor "Igual longitud', de lo contrario guarde el valor "Diferente longitud". Muestre en pantalla
 la longitud del nombre, apellido, la diferencia de las longitudes y el resultado devuelto por el DECODE. Como se pide usar la
-función DECODE como una instrucción de PL/SQL y no como una instrucción SQL, producirá un error, explique el por qué. */
+funciï¿½n DECODE como una instrucciï¿½n de PL/SQL y no como una instrucciï¿½n SQL, producirï¿½ un error, explique el por quï¿½. */
 
 SET SERVEROUTPUT ON
 DECLARE
@@ -188,7 +188,7 @@ END;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-/*4.2 Reescriba el código del ejercicio 4.1 para que pueda producir algún resultado.*/
+/*4.2 Reescriba el cï¿½digo del ejercicio 4.1 para que pueda producir algï¿½n resultado.*/
 
 SET SERVEROUTPUT ON
 DECLARE
@@ -224,8 +224,8 @@ END;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-/*  4.3 Construya un código PL/SQL que busque la fecha mínima y máxima de los empleados. Busque los meses que hay entre
-ambas fechas. Use la  función MONTHS_BETWEEN y almacene su resultado en una variable. El resultado debe expresarse en
+/*  4.3 Construya un cï¿½digo PL/SQL que busque la fecha mï¿½nima y mï¿½xima de los empleados. Busque los meses que hay entre
+ambas fechas. Use la  funciï¿½n MONTHS_BETWEEN y almacene su resultado en una variable. El resultado debe expresarse en
 valores enteros. Muestre por pantalla el resultado.  */
 
 DECLARE
@@ -248,7 +248,7 @@ END;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* 4.4 Construya un código de PL/SQL donde use una secuencia y asigne el valor directamente a una variable, tal como lo
+/* 4.4 Construya un cï¿½digo de PL/SQL donde use una secuencia y asigne el valor directamente a una variable, tal como lo
 permite Oracle 11g. Muestre el valor de la variable por pantalla. */
 
 DECLARE
@@ -267,10 +267,10 @@ END;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* 4.5 Construya un bloque PL/SQL que contenga bloques anidados y así pueda practicar el alcance y visibilidad de las
+/* 4.5 Construya un bloque PL/SQL que contenga bloques anidados y asï¿½ pueda practicar el alcance y visibilidad de las
 variables. En el bloque principal busque el apellido y la fecha de ingreso del empleado 204 y en el bloque interno busque el
 apellido y la fecha de ingreso de su supervisor. En el bloque interno y externo muestre el apellido y la fecha de ingreso de
-ambos empleados. Explique el resultado que produce el código. Si da algún error indique cómo pudiera evitarlo. */
+ambos empleados. Explique el resultado que produce el cï¿½digo. Si da algï¿½n error indique cï¿½mo pudiera evitarlo. */
 
 
 DECLARE
@@ -309,7 +309,7 @@ END;
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* 4.6 Reconstruya el código del ejercicio 4.5 y guarde los valores de las consultas externas e internas en variables con el mismo
+/* 4.6 Reconstruya el cï¿½digo del ejercicio 4.5 y guarde los valores de las consultas externas e internas en variables con el mismo
 nombre. Use las etiquetas para imprimir los valores correspondientes a cada bloque */
 
 
@@ -366,14 +366,14 @@ BEGIN
          v_comm          NUMBER(7,2) := 0;
          v_total_comp  NUMBER(7,2) := v_sal + v_comm;
    BEGIN
-         v_message := 'CLERK not'||v_message; -- Posición 1
+         v_message := 'CLERK not'||v_message; -- Posiciï¿½n 1
          outer.v_comm := v_sal * 0.20;
                   DBMS_OUTPUT.PUT_LINE('v_message: ' || v_message);
                   DBMS_OUTPUT.PUT_LINE('v_total_comp: ' || v_total_comp);
                   DBMS_OUTPUT.PUT_LINE('v_comm: ' || v_comm); --(Vale cero)
                   DBMS_OUTPUT.PUT_LINE('outer.v_comm: ' || outer.v_comm); -- Vale (9,000)
    END;
-   v_message := 'SALESMAN'||v_message; -- Posición 2
+   v_message := 'SALESMAN'||v_message; -- Posiciï¿½n 2
    DBMS_OUTPUT.PUT_LINE('v_message posicion 2: ' || v_message);
    --DBMS_OUTPUT.PUT_LINE(v_total_comp); --(No declarado)
    DBMS_OUTPUT.PUT_LINE('v_comm posicion 2: ' || v_comm); -- Vale (9,000)
