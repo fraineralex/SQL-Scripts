@@ -1,5 +1,5 @@
 
--- CREACIÓN DE LA TABLA DEPT2
+-- CREACIï¿½N DE LA TABLA DEPT2
 
 CREATE TABLE DEPT2
 (
@@ -14,7 +14,7 @@ DESC DEPT2;
 INSERT INTO DEPT2 (SELECT DEPARTMENT_ID, DEPARTMENT_NAME
                    FROM DEPARTMENTS);
 
--- CREACIÓN DE LA TABLA EMP2
+-- CREACION DE LA TABLA EMP2
 
 CREATE TABLE EMP2
 (
@@ -27,18 +27,18 @@ DEPT_ID NUMBER (7)
 DESC EMP2;
 
 
--- MODIFICACIÓN DE LA COLUMNA FIRST_NAME A 60 CARACTERES EN LA TABLA EMP2.
+-- MODIFICACIï¿½N DE LA COLUMNA FIRST_NAME A 60 CARACTERES EN LA TABLA EMP2.
 
 ALTER TABLE EMP2
 MODIFY FIRST_NAME VARCHAR2 (60);
 
 DESC EMP2;
 
--- CONFIRMACIÓN DE LAS TABLAS DEPT2 Y EMP2 EN EL DICCIONARIO
+-- CONFIRMACIï¿½N DE LAS TABLAS DEPT2 Y EMP2 EN EL DICCIONARIO
 
 SELECT * FROM ALL_ALL_TABLES WHERE UPPER(TABLE_NAME) IN ('EMP2', 'DEPT2');
 
--- CREACIÓN DE LA TABLA EMPLOYEES2
+-- CREACIï¿½N DE LA TABLA EMPLOYEES2
 
 CREATE TABLE EMPLOYEES2
 (
@@ -78,7 +78,7 @@ SELECT ORIGINAL_NAME, OPERATION, DROPTIME
  ALTER TABLE EMPLOYEES2
  DROP COLUMN FIRST_NAME;
 
--- CONFIRMACIÓN
+-- CONFIRMACIï¿½N
 
 DESC EMPLOYEES2;
 
@@ -87,7 +87,7 @@ DESC EMPLOYEES2;
 ALTER TABLE EMPLOYEES2
 SET UNUSED COLUMN DEPARTMENT_ID;
 
--- CONFIRMACIÓN
+-- CONFIRMACIï¿½N
 
 SELECT * FROM USER_UNUSED_COL_TABS;
 
@@ -100,19 +100,19 @@ FROM USER_UNUSED_COL_TABS;
 
 ALTER TABLE EMPLOYEES2 DROP UNUSED COLUMNS;
 
---CONFIRMACIÓN
+--CONFIRMACIï¿½N
 
 SELECT * FROM USER_UNUSED_COL_TABS;
 
 DESC EMPLOYEES2;
 
--- AGRAGDO DE LA RESTRICCIÓN PRIMARY KEY A LA COLUMNA ID EN LA TABLA EMP2
+-- AGRAGDO DE LA RESTRICCIï¿½N PRIMARY KEY A LA COLUMNA ID EN LA TABLA EMP2
 
 ALTER TABLE EMP2
 ADD CONSTRAINT my_emp_id_pk
 PRIMARY KEY (ID);
 
--- AGREGADO DE LA RESTRICCIÓN PRIMARY KEY A LA COLIMNA ID EN LA TABLA DEPT2.
+-- AGREGADO DE LA RESTRICCIï¿½N PRIMARY KEY A LA COLIMNA ID EN LA TABLA DEPT2.
 
 ALTER TABLE DEPT2
 ADD CONSTRAINT my_dept_id_pk
@@ -125,7 +125,7 @@ ADD CONSTRAINT my_emp_dept_fk
 FOREIGN KEY (DEPT_ID)
 REFERENCES DEPT2 (ID);
 
--- CONFIRMACIÓN DEL GUARDADO DE LAS RESTRICCIONES MEDIANTE LA VISTA USER CONSTRAINTS.
+-- CONFIRMACIï¿½N DEL GUARDADO DE LAS RESTRICCIONES MEDIANTE LA VISTA USER CONSTRAINTS.
 
 SELECT *
 FROM USER_CONSTRAINTS
@@ -144,7 +144,7 @@ ADD COMMISSION NUMBER (2,2)
 CONSTRAINT check_constraint_commission
 CHECK (COMMISSION > 0);
 
--- CONFIRMACIÓN
+-- CONFIRMACIï¿½N
 
 SELECT TABLE_NAME, CONSTRAINT_NAME
 FROM ALL_CONSTRAINTS
@@ -155,13 +155,13 @@ WHERE CONSTRAINT_NAME LIKE 'CHECK%';
 DROP TABLE EMP2 PURGE;
 DROP TABLE DEPT2 PURGE;
 
--- CONFIRMACIÓN
+-- CONFIRMACIï¿½N
 
 SELECT ORIGINAL_NAME, OPERATION, DROPTIME 
 FROM RECYCLEBIN
 WHERE ORIGINAL_NAME IN 'EMP2' OR ORIGINAL_NAME IN 'DEPT2';
  
--- CREACIÓN DE LA TABLA DEP_NAMED_INDEX.
+-- CREACIï¿½N DE LA TABLA DEP_NAMED_INDEX.
 
 CREATE TABLE DEP_NAMED_INDEX
 (
@@ -174,9 +174,9 @@ DROP TABLE DEP_NAMED_INDEX;
 
 -----------------------------------------------------------------------------------------------------------------------------
 
-/*1. Escriba una consulta para mostrar el apellido, el número de departamento y el salario de cualquier empleado cuyo
-número de departamento y salario se correspondan con el número de departamento y el salario de cualquier empleado
-que gane una comisión. Use sub-consulta en pares*/
+/*1. Escriba una consulta para mostrar el apellido, el nï¿½mero de departamento y el salario de cualquier empleado cuyo
+nï¿½mero de departamento y salario se correspondan con el nï¿½mero de departamento y el salario de cualquier empleado
+que gane una comisiï¿½n. Use sub-consulta en pares*/
 
 SELECT LAST_NAME, DEPARTMENT_ID, SALARY
 FROM EMPLOYEES
@@ -186,8 +186,8 @@ WHERE (DEPARTMENT_ID, SALARY) IN (SELECT DEPARTMENT_ID, SALARY
                                                                   
 ----------------------------------------------------------------------------------------------------------------
 
-/* 2. Muestre el apellido, el nombre de departamento y el salario de cualquier empleado cuyo salario y comisión se
-correspondan con el salario y la comisión de cualquier empleado con el identificador de ubicación 1700. Use subconsulta en pares.*/
+/* 2. Muestre el apellido, el nombre de departamento y el salario de cualquier empleado cuyo salario y comisiï¿½n se
+correspondan con el salario y la comisiï¿½n de cualquier empleado con el identificador de ubicaciï¿½n 1700. Use subconsulta en pares.*/
 
 
 SELECT LAST_NAME, DEPARTMENT_NAME, SALARY, COMMISSION_PCT
@@ -198,7 +198,7 @@ WHERE (SALARY, COMMISSION_PCT)IN (SELECT  SALARY, COMMISSION_PCT
                                   JOIN DEPARTMENTS D ON (E.DEPARTMENT_ID = D.DEPARTMENT_ID)
                                   WHERE LOCATION_ID = '1700');
                                   
---CONFIRMACIÓN
+--CONFIRMACIï¿½N
 
 SELECT LAST_NAME, DEPARTMENT_NAME, SALARY, COMMISSION_PCT, LOCATION_ID
 FROM EMPLOYEES E
@@ -218,15 +218,15 @@ WHERE LOCATION_ID IN (SELECT LOCATION_ID
                         FROM LOCATIONS
                         WHERE CITY LIKE 'T%');
                         
-/* 4. Escriba una consulta para buscar todos los empleados que ganen más que el salario medio de su departamento.
+/* 4. Escriba una consulta para buscar todos los empleados que ganen mï¿½s que el salario medio de su departamento.
 Muestre el apellido, el salario, el identificador de departamento y el salario medio del departamento. Ordene por salario
 medio. Utilice alias para las columnas recuperadas por la consulta. Use sub-consultas correlacionadas. */
 
 
 --------------------------------------------------------------------------------------------------------------------------------
 
- /* 5. Escriba una consulta para mostrar los apellidos de los empleados que tienen uno o más colegas en su departamento
-con fechas de contratación posteriores pero salarios más altos. Use EXISTS. */
+ /* 5. Escriba una consulta para mostrar los apellidos de los empleados que tienen uno o mï¿½s colegas en su departamento
+con fechas de contrataciï¿½n posteriores pero salarios mï¿½s altos. Use EXISTS. */
 
 SELECT LAST_NAME
 FROM EMPLOYEES E
@@ -239,7 +239,7 @@ WHERE EXISTS (SELECT LAST_NAME
 ---------------------------------------------------------------------------------------------------------------------------------------              
 
 /* 6. Escriba una consulta para mostrar los nombres de departamento de los departamentos cuyo costo de salario total
-supere un octavo (1/8) del costo de salario total de toda la compañía. Utilice la cláusula WITH para escribir esta
+supere un octavo (1/8) del costo de salario total de toda la compaï¿½ï¿½a. Utilice la clï¿½usula WITH para escribir esta
 consulta. Asigne a la consulta el nombre SUMMARY. */
 
 WITH SUMARY AS (SELECT DEPARTMENT_NAME, SUM(E.SALARY) COSTO_SALARIO_DEPARTAMENTO
