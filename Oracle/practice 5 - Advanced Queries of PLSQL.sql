@@ -1,7 +1,7 @@
 
-/* 10.1 Construir un código PL/SQL que cree un procedimiento que actualice el salario en un 5%
+/* 10.1 Construir un cï¿½digo PL/SQL que cree un procedimiento que actualice el salario en un 5%
 de un empleado suministrado por pantalla. Muestre el apellido y el salario del empleado,
-antes y después de actualizar el registro. Ejecute el procedimiento desde un bloque de programa no nombrado */
+antes y despuï¿½s de actualizar el registro. Ejecute el procedimiento desde un bloque de programa no nombrado. */
 
 CREATE OR REPLACE PROCEDURE update_salary 
   (v_id NUMBER) IS
@@ -41,11 +41,11 @@ END;
 
 -----------------------------------------------------------------------------------------------------------
 
-/*10.2 Construir un código PL/SQL anónimo que invoque un procedimiento pasándole como parámetro un ID del empleado que fue 
+/*10.2 Construir un cï¿½digo PL/SQL anï¿½nimo que invoque un procedimiento pasï¿½ndole como parï¿½metro un ID del empleado que fue 
 introducido por pantalla y que imprima por pantalla el apellido y el salario de dicho empleado. Desplegar los datos como:    
                                     "Detalle del empleado: <Apellido>, <Salario>"
-Construir un código PL/SQL que cree un procedimiento que busque el apellido y el salario de un empleado recibido del código
-anterior. Definir dos parámetros de salida para devolver el apellido y el salario de dicho empleado.*/
+Construir un cï¿½digo PL/SQL que cree un procedimiento que busque el apellido y el salario de un empleado recibido del cï¿½digo
+anterior. Definir dos parï¿½metros de salida para devolver el apellido y el salario de dicho empleado.*/
 
 CREATE OR REPLACE PROCEDURE buscar_salario 
   (v_emp_id IN employees.employee_id%TYPE, v_last_name OUT employees.last_name%TYPE, v_salary OUT employees.salary%TYPE)
@@ -78,7 +78,7 @@ BEGIN
  buscar_salario(&&ID, v_last_name, v_salary);
   
   IF v_salary = '-1' THEN 
-     DBMS_OUTPUT.PUT_LINE(CHR(10)||'El subprograma reportó una excepción');
+     DBMS_OUTPUT.PUT_LINE(CHR(10)||'El subprograma reportï¿½ una excepciï¿½n');
   ELSE
      DBMS_OUTPUT.PUT_LINE('Detalle del empleado: <' || v_last_name ||'>, <' || v_salary || '>');
   END IF;
@@ -88,8 +88,8 @@ END;
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-/*10.3 A) Construir un código PL/SQL que construya un procedimiento llamado raise_comm,
-el cual reciba dos parámetros(ID del empleado y Tasa de aumento). Este procedimiento 
+/*10.3 A) Construir un cï¿½digo PL/SQL que construya un procedimiento llamado raise_comm,
+el cual reciba dos parï¿½metros(ID del empleado y Tasa de aumento). Este procedimiento 
 tiene como labor actualizar el salario del empleado dado a la tasa de aumento recibida.*/
 
 CREATE OR REPLACE PROCEDURE raise_comm
@@ -106,14 +106,14 @@ END;
 /
 
 
-/*B) Construir un código PL/SQL que construya un procedimiento llamado employee_proc,
+/*B) Construir un cï¿½digo PL/SQL que construya un procedimiento llamado employee_proc,
 el cual construya un cursor que busque el ID del empleado, el apellido y el salario
 de todos los empleados que trabajan como IT_PROG.
 
-?	Si el empleado gana entre 4000 y 5000, deberá tener una tasa de aumento de 10%.
-?	Si el empleado gana entre 5001 y 6000, deberá tener una tasa de aumento de 8%.
-?	Si el empleado gana entre 6001 y 7000, deberá tener una tasa de aumento de 6%.
-?	Si el empleado gana cualquier otro valor, deberá tener una tasa de aumento de 4%. */
+?	Si el empleado gana entre 4000 y 5000, deberï¿½ tener una tasa de aumento de 10%.
+?	Si el empleado gana entre 5001 y 6000, deberï¿½ tener una tasa de aumento de 8%.
+?	Si el empleado gana entre 6001 y 7000, deberï¿½ tener una tasa de aumento de 6%.
+?	Si el empleado gana cualquier otro valor, deberï¿½ tener una tasa de aumento de 4%. */
 
 CREATE OR REPLACE PROCEDURE employee_proc
 IS
@@ -164,7 +164,7 @@ EXECUTE employee_proc;
 
 
 
---Salarios de los empleados después de la actualización
+--Salarios de los empleados despuï¿½s de la actualizaciï¿½n
 SELECT LAST_NAME, SALARY
 FROM EMPLOYEES
 WHERE JOB_ID = 'IT_PROG';
@@ -191,7 +191,7 @@ BEGIN
  
  ---------------------------------------------------------------------------------------------------------
  
- /*10.4 Construya un código PL/SQL que cree la función tax, la cual reciba como parámetro el salario 
+ /*10.4 Construya un cï¿½digo PL/SQL que cree la funciï¿½n tax, la cual reciba como parï¿½metro el salario 
  de un empleado dado y que retorne el salario aumentado en un 10%.*/
  
  CREATE OR REPLACE FUNCTION tax(v_salary employees.salary%TYPE) 
@@ -205,11 +205,11 @@ END;
 /
 
  
- /*Realice una consulta usando una instrucción SQL. En la misma seleccione el ID del empleado y el
- valor devuelto por la función (llamar función), para todos aquellos empleados cuyo valor devuelto
- por la función (llamar función) sea mayor (query principal) al valor máximo devuelto por la 
- función (llamar función) de los empleados que laboren en el departamento 30 (subquery).
- Ordene los valores por el valor devuelto por la función (llamar función).*/
+ /*Realice una consulta usando una instrucciï¿½n SQL. En la misma seleccione el ID del empleado y el
+ valor devuelto por la funciï¿½n (llamar funciï¿½n), para todos aquellos empleados cuyo valor devuelto
+ por la funciï¿½n (llamar funciï¿½n) sea mayor (query principal) al valor mï¿½ximo devuelto por la 
+ funciï¿½n (llamar funciï¿½n) de los empleados que laboren en el departamento 30 (subquery).
+ Ordene los valores por el valor devuelto por la funciï¿½n (llamar funciï¿½n).*/
  
 SELECT employee_id, tax(salary) AS "Salario actualizado"
 FROM employees
@@ -219,26 +219,26 @@ WHERE tax(salary) > (SELECT MAX(tax(salary))
 
 ORDER BY 2;
 
--- Confirmación
+-- Confirmaciï¿½n
 SELECT max(tax(salary))
 FROM EMPLOYEES
 where department_id = 30;
 
 ------------------------------------------------------------------------------------------------------------------------
 
-/*9.5 Construya un código PL/SQL que busque las localidades que se encuentren en las
+/*9.5 Construya un cï¿½digo PL/SQL que busque las localidades que se encuentren en las
 ciudades de Toronto, Munich y Mexico City. Esto puede hacerlo usando un cursor. Use el
 cursor en el bloque interno. Ordene los datos por ID de localidad. En un bloque interno
 aumente en un 25% el salario de los empleados cuyo departamento se encuentre en las
 localidades de las ciudades dadas. Para actualizar los datos puede usar un sub-query. Muestre
 la cantidad de registros actualizados en cada localidad. Maneje cualquier error que surja al
-momento de la actualización usando excepciones manejadas por el usuario. Defina la
-excepción en el bloque externo. Muestre el siguiente mensaje de error:
+momento de la actualizaciï¿½n usando excepciones manejadas por el usuario. Defina la
+excepciï¿½n en el bloque externo. Muestre el siguiente mensaje de error:
 
   'Departamento no existe. Favor revise la localidad: <<ID Localidad>>'
   
-Maneje también cualquier error producido durante el manejo del cursor en el bloque interno.
-Muestre el siguiente mensaje de error: 'Acceso a cursor inválido!'*/
+Maneje tambiï¿½n cualquier error producido durante el manejo del cursor en el bloque interno.
+Muestre el siguiente mensaje de error: 'Acceso a cursor invï¿½lido!'*/
 
 SET SERVEROUTPUT ON
 DECLARE
@@ -290,7 +290,7 @@ EXCEPTION
   WHEN e_update_excep THEN
      DBMS_OUTPUT.PUT_LINE('Departamento no existe. Favor revise la localidad: '||SQLERRM);
      WHEN INVALID_CURSOR THEN
-        DBMS_OUTPUT.PUT_LINE('Acceso a cursor inválido!');
+        DBMS_OUTPUT.PUT_LINE('Acceso a cursor invï¿½lido!');
         WHEN OTHERS THEN
              DBMS_OUTPUT.PUT_LINE('Error inesperado');
 
