@@ -1,9 +1,9 @@
-/* 7.1 Construya un código PL/SQL que lea el ID del empleado, ID del supervisor y comisión. 
-   Si el empleado cobra comisión que guarde en una variable "Cobra comisión". Además, si el 
+/* 7.1 Construya un cï¿½digo PL/SQL que lea el ID del empleado, ID del supervisor y comisiï¿½n. 
+   Si el empleado cobra comisiï¿½n que guarde en una variable "Cobra comisiï¿½n". Ademï¿½s, si el 
    empleado se reporta a un supervisor que guarde en la misma variable "Tiene supervisor".
    Al final, mostrar en pantalla el siguiente mensaje:"El empleado <<ID del empleado>> 
-   <<Mensaje>>".Guarde la información leída de la tabla de empleados en una variable 
-   tipo RECORD. ermitir que el código sea reusable. */
+   <<Mensaje>>".Guarde la informaciï¿½n leï¿½da de la tabla de empleados en una variable 
+   tipo RECORD. ermitir que el cï¿½digo sea reusable */
 
 SET SERVEROUTPUT ON                
 DECLARE
@@ -23,7 +23,7 @@ BEGIN
  WHERE employee_id = &emp_id;
  
  IF v_record.comision IS NOT NULL THEN
-    v_mensaje := 'cobra comisión';
+    v_mensaje := 'cobra comisiï¿½n';
     DBMS_OUTPUT.PUT_LINE('El empleado '|| v_record.emp_id || ' ' || v_mensaje);
     IF v_record.man_id IS NOT NULL THEN
        v_mensaje := 'tiene supervisor';
@@ -46,16 +46,16 @@ GRADE VARCHAR2(3)
 MSG VARCHAR2(10)
 
 Cree una variable RECORD que contenga el registro completo de empleados, el nombre de
-departamento y el nivel salarial (para simplificar la construcción de la variable RECORD cree
-una vista). En el cuerpo del código, deberán leer la información correspondiente de las tablas
+departamento y el nivel salarial (para simplificar la construcciï¿½n de la variable RECORD cree
+una vista). En el cuerpo del cï¿½digo, deberï¿½n leer la informaciï¿½n correspondiente de las tablas
 de empleados, departamentos y niveles salariales y guardar los datos en la variable tipo
-RECORD. A continuación deberán construir una estructura CASE para evaluar el nivel salarial.
-Deberán almacenar en una variable un texto dependiendo del nivel salarial. Si es "A"
+RECORD. A continuaciï¿½n deberï¿½n construir una estructura CASE para evaluar el nivel salarial.
+Deberï¿½n almacenar en una variable un texto dependiendo del nivel salarial. Si es "A"
 almacenan "Low", si es "B" o "C" almacenan "Medium", si es "D" almacenan "High", de lo
-contrario almacenan "Elite". Finalmente deberán insertar en la tabla creada inicialmente los
-valores obtenidos. Fuera del código, revise el contenido de la tabla EMP_GRADES.*/
+contrario almacenan "Elite". Finalmente deberï¿½n insertar en la tabla creada inicialmente los
+valores obtenidos. Fuera del cï¿½digo, revise el contenido de la tabla EMP_GRADES.*/
 
--- Creación de la tabla EMP_GRADES
+-- Creaciï¿½n de la tabla EMP_GRADES
 CREATE TABLE EMP_GRADES
 (
 EMP_ID NUMBER(6),
@@ -67,7 +67,7 @@ GRADE VARCHAR2(3),
 MSG VARCHAR2(10)
 );
   
-  -- Creación de la vista VW_EMP
+  -- Creaciï¿½n de la vista VW_EMP
   CREATE VIEW VW_EMP AS
     SELECT e.employee_id, e.first_name, e.last_name, e.email, e.phone_number, 
             e.hire_date, e.job_id, e.salary, e.commission_pct, e.manager_id, e.department_id, 
@@ -122,14 +122,14 @@ FROM EMP_GRADES;
 
 ----------------------------------------------------------------------------------------------------------------------
 
-/*  7.3 Construir un código PL/SQL usando una estructura de arreglo asociativa (INDEX-BY table).
-En la misma deberás guardar los registros de la tabla de empleados para los ID de empleados del
-100 al 120. Las siguientes tareas deberán realizarse a partir del arreglo asociativo construido
-y usando los métodos de tablas INDEX BY:
+/*  7.3 Construir un cï¿½digo PL/SQL usando una estructura de arreglo asociativa (INDEX-BY table).
+En la misma deberï¿½s guardar los registros de la tabla de empleados para los ID de empleados del
+100 al 120. Las siguientes tareas deberï¿½n realizarse a partir del arreglo asociativo construido
+y usando los mï¿½todos de tablas INDEX BY:
 
   1. Mostrar en pantalla la cantidad de registros.
   2. Mostrar el apellido del primer registro.
-  3. Mostrar el apellido del último registro.
+  3. Mostrar el apellido del ï¿½ltimo registro.
   4. Mostrar el apellido del registro 104.
   5. Mostrar el apellido del registro anterior al 104.
   6. Mostrar el apellido del registro posterior al 104.
@@ -139,7 +139,7 @@ y usando los métodos de tablas INDEX BY:
  10. Eliminar el rango de registros del 115 al 117.
  11. Mostrar la cantidad de registros.
  12. Mostrar el apellido de todos los registros del 100 al 120, en caso
- de que un índice no exista en dicho rango, mostrar "No existe".
+ de que un ï¿½ndice no exista en dicho rango, mostrar "No existe".
  13. Borrar todos los registros.
  14. Mostrar la cantidad de registros.  */
  
@@ -169,9 +169,9 @@ BEGIN
    DBMS_OUTPUT.PUT_LINE('2. Mostrar el apellido del primer registro.'|| CHR(10) ||
    '- Apellido del primer registro: ' || emp_array(emp_array.FIRST).last_name || CHR(10));
    
- -- 3. Mostrar el apellido del último registro.   
-   DBMS_OUTPUT.PUT_LINE('3. Mostrar el apellido del último registro.'|| CHR(10) ||
-   '- Apellido del último registro: ' || emp_array(emp_array.LAST).last_name || CHR(10));
+ -- 3. Mostrar el apellido del ï¿½ltimo registro.   
+   DBMS_OUTPUT.PUT_LINE('3. Mostrar el apellido del ï¿½ltimo registro.'|| CHR(10) ||
+   '- Apellido del ï¿½ltimo registro: ' || emp_array(emp_array.LAST).last_name || CHR(10));
    
  -- 4. Mostrar el apellido del registro 104.
       DBMS_OUTPUT.PUT_LINE('4. Mostrar el apellido del registro 104.'|| CHR(10) ||
@@ -216,9 +216,9 @@ BEGIN
     - Cantidad de registros: ' || emp_array.COUNT || CHR(10));
     
  -- 12. Mostrar el apellido de todos los registros del 100 al 120, en caso
- -- de que un índice no exista en dicho rango, mostrar "No existe".
+ -- de que un ï¿½ndice no exista en dicho rango, mostrar "No existe".
     DBMS_OUTPUT.PUT_LINE('12. Mostrar el apellido de todos los registros del 100 al 120,
-    en caso de que un índice no exista en dicho rango, mostrar "No existe' || CHR(10));
+    en caso de que un ï¿½ndice no exista en dicho rango, mostrar "No existe' || CHR(10));
     FOR i IN 100..120 LOOP
         IF emp_array.EXISTS(i) THEN
            DBMS_OUTPUT.PUT_LINE('- El apellido del empleado ' || i || ' es ' || emp_array(i).last_name);
@@ -244,7 +244,7 @@ END;
 
 -------------------------------------------------------------------------------
 
-/*7.4 Construir un código PL/SQL que cree una variable tipo VARRAY de tamaño 21 
+/*7.4 Construir un cï¿½digo PL/SQL que cree una variable tipo VARRAY de tamaï¿½o 21 
 para almacenar los apellidos de los ID de empleados 100 al 120. Para llenar el arreglo,
 usen BULK COLLECT INTO. Mostrar por pantalla los datos obtenidos con el siguiente formato:
            Elemento <<# de elemento>> del arreglo VARRAY: <<Apellido>>*/
@@ -273,14 +273,14 @@ END;
 ----------------------------------------------------------------------------------------------------
 
 /* 7.5 Crear un tipo de dato VARRAY (dept_type) que sea VARCHAR2(25).
-El tamaño del arreglo debe ser de 25. Luego deberán crear una variable 
+El tamaï¿½o del arreglo debe ser de 25. Luego deberï¿½n crear una variable 
 que use el tipo VARRAY creado anteriormente. En dicha variable almacenen
 todos los apellidos de los empleados que trabajan en un departamento dado
-por pantalla. Mostrar la información de la siguiente forma:
+por pantalla. Mostrar la informaciï¿½n de la siguiente forma:
 
            Departamento: <<ID del departamento>>
                 *** Empleado: <<Apellido>>
-Usen el comando para definir una variable de sustitución y para
+Usen el comando para definir una variable de sustituciï¿½n y para
 no visualizar el texto del comando. */
 
 SET VERIFY OFF
@@ -307,11 +307,11 @@ END;
 
 ------------------------------------------------------------------------------------------------
 
-/* 8.1 Construya un código PL/SQL que usando un CURSOR explícito busque la fecha máxima
-de contratación en la tabla de empleados. Use FETCH para leer cada fila del cursor.
-Analice cuántos registros retornará el cursor. Basado en su análisis elija la mejor
-forma de construir el código. Muestre el siguiente mensaje:
-                      La máxima fecha es <<Fecha>>            */
+/* 8.1 Construya un cï¿½digo PL/SQL que usando un CURSOR explï¿½cito busque la fecha mï¿½xima
+de contrataciï¿½n en la tabla de empleados. Use FETCH para leer cada fila del cursor.
+Analice cuï¿½ntos registros retornarï¿½ el cursor. Basado en su anï¿½lisis elija la mejor
+forma de construir el cï¿½digo. Muestre el siguiente mensaje:
+                      La mï¿½xima fecha es <<Fecha>>            */
                       
 
 SET SERVEROUTPUT ON
@@ -325,7 +325,7 @@ v_fecha employees.hire_date%TYPE;
 BEGIN
   OPEN c_fecha_cursor;
   FETCH c_fecha_cursor INTO v_fecha;
-  DBMS_OUTPUT.PUT_LINE('La máxima Fecha es: ' || v_fecha);
+  DBMS_OUTPUT.PUT_LINE('La mï¿½xima Fecha es: ' || v_fecha);
   CLOSE c_fecha_cursor;
   
 END;
@@ -333,11 +333,11 @@ END;
 
 ---------------------------------------------------------------------------------------------------------------
 
-/* 8.2 Construya un código PL/SQL usando un CURSOR explícito que busqueel apellido
-y la posición de todos los empleados que se reportan al supervisor 100.
-Mostrar el siguiente mensaje sólo para los primeros 10 empleados:
+/* 8.2 Construya un cï¿½digo PL/SQL usando un CURSOR explï¿½cito que busqueel apellido
+y la posiciï¿½n de todos los empleados que se reportan al supervisor 100.
+Mostrar el siguiente mensaje sï¿½lo para los primeros 10 empleados:
 
-          El empleado <<Apellido>> trabaja como <<Posición>>
+          El empleado <<Apellido>> trabaja como <<Posiciï¿½n>>
 
 Utilice FETCH, %NOTFOUND y %ROWCOUNT. Ante de abrir el CURSOR valide 
        que el mismo no se encuentre abierto usando %ISOPEN. */
@@ -368,19 +368,19 @@ END;
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------
 
-/* 8.3 Construya un código PL/SQL usando cursor FOR LOOP que lea los ID del empleado,apellido, 
+/* 8.3 Construya un cï¿½digo PL/SQL usando cursor FOR LOOP que lea los ID del empleado,apellido, 
 salario, nombre de departamento y nivel salarial. Relacione sus datos con la tabla JOB_GRADES
 para conocer su nivel salarial. Si el nivel del empleado es 'A'se desea desplegar "Low",
 si es 'B' o 'C' que despliegue 'Medium', si es 'D' que despliegue 'High' y si no es
 ninguno de estos niveles, que despliegue 'Elite'. Ordene los datos por el nivel
-salarial. Mueste la información por pantalla como sigue:
+salarial. Mueste la informaciï¿½n por pantalla como sigue:
 
               Id: <<Id del empleado>> * Apellido: <<Apellido>> *
    Departamento: <<Nombre del Departamento>> * Salary: <<Salario>> * Nivel: <<Nivel>>
 
         El salario debe salir con el siguiente formato: 'fm$99,999' */
 
--- BLOQUE DE CÓDIGO
+-- BLOQUE DE Cï¿½DIGO
 ALTER TABLE job_grades
 MODIFY grade CHAR(10);
 
@@ -393,7 +393,7 @@ DECLARE
             ORDER BY 5;
             
 BEGIN
-     DBMS_OUTPUT.PUT_LINE('INFORMACIÓN DE LOS EMPLEADOS' || CHR(10));
+     DBMS_OUTPUT.PUT_LINE('INFORMACIï¿½N DE LOS EMPLEADOS' || CHR(10));
      
      FOR v_emp IN c_emp_cursor LOOP
          CASE v_emp.grade
@@ -418,13 +418,13 @@ END;
 
 -----------------------------------------------------------------------------------------------------------------
 
-/* 8.4 Construya un código PL/SQL usando un cursor FOR LOOP con subquery. Muestre el ID,
-apellido y país de todos los empleados que trabajen en Canadá y United Kingdom. Ordene
-la data por país y apellido de manera ascendente. El formato de la salida debe ser como sigue
-                       ID *** Apellido *** País                   */
+/* 8.4 Construya un cï¿½digo PL/SQL usando un cursor FOR LOOP con subquery. Muestre el ID,
+apellido y paï¿½s de todos los empleados que trabajen en Canadï¿½ y United Kingdom. Ordene
+la data por paï¿½s y apellido de manera ascendente. El formato de la salida debe ser como sigue
+                       ID *** Apellido *** Paï¿½s                   */
 SET SERVEROUTPUT ON                   
 BEGIN
-    DBMS_OUTPUT.PUT_LINE('INFORMACIÓN DE LOS EMPLEADOS' || CHR(10));
+    DBMS_OUTPUT.PUT_LINE('INFORMACIï¿½N DE LOS EMPLEADOS' || CHR(10));
     FOR v_emp IN (SELECT employee_id, last_name, country_name
     FROM employees e
     NATURAL JOIN departments
@@ -435,7 +435,7 @@ BEGIN
     
     LOOP
        DBMS_OUTPUT.PUT_LINE('ID: ' || v_emp.employee_id || ' *** ' || 'Apellido: ' ||
-                            v_emp.last_name || ' *** ' || 'País: ' || v_emp.country_name);
+                            v_emp.last_name || ' *** ' || 'Paï¿½s: ' || v_emp.country_name);
                             
     END LOOP;
     
@@ -444,9 +444,9 @@ END;
 
 --------------------------------------------------------------------------------------------------------
 
-/* 8.5 Construya un código PL/SQL con un cursor que busque el salario total y el salario
+/* 8.5 Construya un cï¿½digo PL/SQL con un cursor que busque el salario total y el salario
 promedio que trabajan en un departamento dado. Al momento de abrir el cursor pase los 
-valores 20 y 30 como parámetros. Muestre la información como sigue:
+valores 20 y 30 como parï¿½metros. Muestre la informaciï¿½n como sigue:
 
  Departamento(<<ID>>): Salario total <<total>> *** Salario promedio <<promedio>>
    
@@ -485,10 +485,10 @@ END;
 
 ----------------------------------------------------------------------------------------------------------
 
-/* 8.6 Construya un código PL/SQL que busque el ID y salario de los empleados que ganan una comisión
-mayor a un valor dado (Ejemplo: 0.1) y bloquee el salario para que no sea actualizado por otra sesión.
-En la sección de ejecución actualice el salario de los empleados que vengan en el cursor en un 10%.
-Para realizar esta práctica use un cursor FOR LOOP con parámetros, FOR UDPATE OF, NOWAIT y CURRENT OF.*/
+/* 8.6 Construya un cï¿½digo PL/SQL que busque el ID y salario de los empleados que ganan una comisiï¿½n
+mayor a un valor dado (Ejemplo: 0.1) y bloquee el salario para que no sea actualizado por otra sesiï¿½n.
+En la secciï¿½n de ejecuciï¿½n actualice el salario de los empleados que vengan en el cursor en un 10%.
+Para realizar esta prï¿½ctica use un cursor FOR LOOP con parï¿½metros, FOR UDPATE OF, NOWAIT y CURRENT OF.*/
 
 
   SELECT employee_id, salary
@@ -519,13 +519,13 @@ WHERE (commission_pct > &v_comm);
 
 -------------------------------------------------------------------------------------------
 
-/* 8.7 Realice la práctica 8.6 usando WAIT por 10 segundos. Conectado como SYSTEM cree un usuario
-(otorgarles los privilegios correspondientes para que pueda crear una sesión), luego conectado
-como HR se le debe otorgar los privilegios de actualización sobre la tabla EMPLOYEES. Cree una
-sesión nueva conectado con el usuario recientemente creado y actualice el salario en un 15% al
-empleado 146 (no asiente los cambios). En la sesión HR, corra el programa y en un primer 
-escenario deje que pase los 10 segundos y comente qué pasa. En la misma sesión de HR, c
-orra nuevamente el programa y antes de que venzan los 10 segundos, diríjase a la sesión 
+/* 8.7 Realice la prï¿½ctica 8.6 usando WAIT por 10 segundos. Conectado como SYSTEM cree un usuario
+(otorgarles los privilegios correspondientes para que pueda crear una sesiï¿½n), luego conectado
+como HR se le debe otorgar los privilegios de actualizaciï¿½n sobre la tabla EMPLOYEES. Cree una
+sesiï¿½n nueva conectado con el usuario recientemente creado y actualice el salario en un 15% al
+empleado 146 (no asiente los cambios). En la sesiï¿½n HR, corra el programa y en un primer 
+escenario deje que pase los 10 segundos y comente quï¿½ pasa. En la misma sesiï¿½n de HR, c
+orra nuevamente el programa y antes de que venzan los 10 segundos, dirï¿½jase a la sesiï¿½n 
 del otro usuario y deshaga el cambio y comente el comportamiento del programa. */
 
 
